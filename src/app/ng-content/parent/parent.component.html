@@ -1,0 +1,11 @@
+<ng-container *ngFor="let item of items; let i = index">
+    <ng-container *ngTemplateOutlet="i<maxItemToDisplay ?content:null ; context: {$implicit: item}"></ng-container>
+</ng-container>
+
+<ng-container *ngTemplateOutlet="items.length > maxItemToDisplay ?counter:null ">
+</ng-container>
+
+<ng-template #counter>
+    <ng-content select="[counterToolTip]" ></ng-content>
+    +{{items.length -maxItemToDisplay}}
+</ng-template>
